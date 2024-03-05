@@ -5,8 +5,10 @@ package com.testTec.OLSoftware.inventory.model;
  */
 import java.io.Serializable;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "device_types")
 public class DeviceType implements Serializable {
 
@@ -16,23 +18,5 @@ public class DeviceType implements Serializable {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    // Getters and setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
+   
 }

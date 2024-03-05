@@ -6,8 +6,10 @@ package com.testTec.OLSoftware.inventory.model;
  */
 import java.io.Serializable;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "device_models")
 public class DeviceModel implements Serializable {
 
