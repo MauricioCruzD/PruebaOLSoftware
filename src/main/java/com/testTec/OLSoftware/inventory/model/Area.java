@@ -8,8 +8,10 @@ package com.testTec.OLSoftware.inventory.model;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "areas")
 public class Area implements Serializable {
 
@@ -23,28 +25,5 @@ public class Area implements Serializable {
     @OneToMany(mappedBy = "area", cascade = CascadeType.ALL)
     private List<User> users;
     
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<User> getDevices() {
-        return users;
-    }
-
-    public void setDevices(List<User> users) {
-        this.users = users;
-    }
 }
 

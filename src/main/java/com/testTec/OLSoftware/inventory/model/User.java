@@ -8,9 +8,11 @@ package com.testTec.OLSoftware.inventory.model;
 import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.List;
+import lombok.Data;
 
 
 @Entity
+@Data
 @Table(name = "users")
 public class User implements Serializable {
 
@@ -37,11 +39,11 @@ public class User implements Serializable {
     private String phone;
 
     //@Column(name = "role", nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "role")
     private Role role;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "area_id")
     private Area area;
 
@@ -49,87 +51,5 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "assignedUser", cascade = CascadeType.ALL)
     private List<Device> devices;
-
-    // Constructor, getters y setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public List<Device> getDevices() {
-        return devices;
-    }
-
-    public void setDevices(List<Device> devices) {
-        this.devices = devices;
-    }
-    
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
     
 }

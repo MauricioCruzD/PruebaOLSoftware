@@ -6,8 +6,10 @@ package com.testTec.OLSoftware.inventory.model;
  */
 import java.io.Serializable;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "devices")
 public class Device implements Serializable {
 
@@ -39,47 +41,5 @@ public class Device implements Serializable {
 
     @Column(name = "comments")
     private String comments;
-
-    // Getters and setters
-    
-      public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getInventoryNumber() {
-        return inventoryNumber;
-    }
-
-    public void setInventoryNumber(Integer inventoryNumber) {
-        this.inventoryNumber = inventoryNumber;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public DeviceState getDeviceState() {
-        return deviceState;
-    }
-
-    public void setDeviceState(DeviceState deviceState) {
-        this.deviceState = deviceState;
-    }
-
-    public User getAssignedUser() {
-        return assignedUser;
-    }
-
-    public void setAssignedUser(User assignedUser) {
-        this.assignedUser = assignedUser;
-    }
 
 }
