@@ -1,4 +1,4 @@
-package com.test.OLSoftware.inventory.controller;
+package com.testTec.OLSoftware.inventory.controller;
 
 /**
  *
@@ -6,26 +6,25 @@ package com.test.OLSoftware.inventory.controller;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import com.testTec.OLSoftware.inventory.service.AreaService;
+import com.testTec.OLSoftware.inventory.model.Area;
 import org.springframework.web.bind.annotation.*;
-import com.test.OLSoftware.inventory.service.AreaService;
-import com.test.OLSoftware.inventory.model.Area;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/areas")
+@RequestMapping("/areas")
 public class AreaController {
 
     @Autowired
-    private AreaService areaService; // Deberías tener un servicio para manejar la lógica de áreas
-
+    private AreaService areaService;
+   
     @GetMapping
     public List<Area> getAllAreas() {
         return areaService.getAllAreas();
     }
 
     @GetMapping("/{id}")
-    public Area getAreaById(@PathVariable Long id) {
+    public Area getAreaById(@PathVariable Integer id) {
         return areaService.getAreaById(id);
     }
 
@@ -35,12 +34,12 @@ public class AreaController {
     }
 
     @PutMapping("/{id}")
-    public Area updateArea(@PathVariable Long id, @RequestBody Area area) {
+    public Area updateArea(@PathVariable Integer id, @RequestBody Area area) {
         return areaService.updateArea(id, area);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteArea(@PathVariable Long id) {
+    public void deleteArea(@PathVariable Integer id) {
         areaService.deleteArea(id);
     }
 }

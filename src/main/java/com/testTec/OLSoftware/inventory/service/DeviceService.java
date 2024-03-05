@@ -1,4 +1,4 @@
-package com.test.OLSoftware.inventory.service;
+package com.testTec.OLSoftware.inventory.service;
 
 /**
  *
@@ -8,8 +8,8 @@ package com.test.OLSoftware.inventory.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.test.OLSoftware.inventory.repository.DeviceRepository;
-import com.test.OLSoftware.inventory.model.Device;
+import com.testTec.OLSoftware.inventory.repository.DeviceRepository;
+import com.testTec.OLSoftware.inventory.model.Device;
 
 import java.util.List;
 
@@ -17,32 +17,32 @@ import java.util.List;
 public class DeviceService {
 
     @Autowired
-    private DeviceRepository deviceRepository; // Asumiendo que tienes un repositorio para Device
+    private DeviceRepository repository; 
 
     public List<Device> getAllDevices() {
-        return deviceRepository.findAll();
+        return repository.findAll();
     }
 
-    public Device getDeviceById(Long id) {
-        return deviceRepository.findById(id).orElse(null);
+    public Device getDeviceById(Integer id) {
+        return repository.findById(id).orElse(null);
     }
 
     public Device createDevice(Device device) {
         // Lógica de validación o procesamiento adicional si es necesario
-        return deviceRepository.save(device);
+        return repository.save(device);
     }
 
-    public Device updateDevice(Long id, Device device) {
+    public Device updateDevice(Integer id, Device device) {
         // Verificar si el dispositivo existe antes de actualizar
-        if (deviceRepository.existsById(id)) {
+        if (repository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario
             device.setId(id); // Asegurando que el ID sea el mismo
-            return deviceRepository.save(device);
+            return repository.save(device);
         }
         return null; // Manejar el caso en el que el dispositivo no existe
     }
 
-    public void deleteDevice(Long id) {
-        deviceRepository.deleteById(id);
+    public void deleteDevice(Integer id) {
+        repository.deleteById(id);
     }
 }
