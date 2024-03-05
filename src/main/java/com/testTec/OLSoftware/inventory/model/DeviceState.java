@@ -19,6 +19,6 @@ public class DeviceState implements Serializable {
     private Integer id;
 
     @Column(name = "name", nullable = false)
-    private String stateName;
+    private String name;
 
 }
