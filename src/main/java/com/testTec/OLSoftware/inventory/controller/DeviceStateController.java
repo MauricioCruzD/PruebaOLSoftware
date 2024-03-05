@@ -18,27 +18,27 @@ public class DeviceStateController {
     @Autowired
     private DeviceStateService deviceStateService;
    
-    @GetMapping
+    @GetMapping("/getDeviceStates")
     public List<DeviceState> getAllDeviceState() {
         return deviceStateService.getAllDeviceState();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getDeviceState/{id}")
     public DeviceState getDeviceStateById(@PathVariable Integer id) {
         return deviceStateService.getDeviceStateById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createDeviceState")
     public DeviceState createDeviceState(@RequestBody DeviceState deviceState) {
         return deviceStateService.createDeviceState(deviceState);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateDeviceState/{id}")
     public DeviceState updateDeviceState(@PathVariable Integer id, @RequestBody DeviceState deviceState) {
         return deviceStateService.updateDeviceState(id, deviceState);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteDeviceState/{id}")
     public void deleteDeviceState(@PathVariable Integer id) {
         deviceStateService.deleteDeviceState(id);
     }
