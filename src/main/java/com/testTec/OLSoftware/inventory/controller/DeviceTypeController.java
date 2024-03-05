@@ -18,27 +18,27 @@ public class DeviceTypeController {
     @Autowired
     private DeviceTypeService deviceTypeService;
    
-    @GetMapping
+    @GetMapping("/getDeviceTypes")
     public List<DeviceType> getAllDeviceType() {
         return deviceTypeService.getAllDeviceType();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getDeviceType/{id}")
     public DeviceType getDeviceTypeById(@PathVariable Integer id) {
         return deviceTypeService.getDeviceTypeById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createDeviceType")
     public DeviceType createDeviceType(@RequestBody DeviceType deviceType) {
         return deviceTypeService.createDeviceType(deviceType);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateDeviceType/{id}")
     public DeviceType updateDeviceType(@PathVariable Integer id, @RequestBody DeviceType deviceType) {
         return deviceTypeService.updateDeviceType(id, deviceType);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteDeviceType/{id}")
     public void deleteDeviceType(@PathVariable Integer id) {
         deviceTypeService.deleteDeviceType(id);
     }

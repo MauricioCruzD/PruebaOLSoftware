@@ -20,27 +20,27 @@ public class ManufacturerController {
     @Autowired
     private ManufacturerService service;
 
-    @GetMapping("/")
+    @GetMapping("/getManufacturers")
     public List<Manufacturer> getAllManufacturers() {
         return service.getAllManufacturers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getManufacturer/{id}")
     public Manufacturer getManufacturerById(@PathVariable Integer id) {
         return service.getManufacturerById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createManufacturer")
     public Manufacturer createManufacturer(@RequestBody Manufacturer manufacturer) {
         return service.createManufacturer(manufacturer);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateManufacturer/{id}")
     public Manufacturer updateManufacturer(@PathVariable Integer id, @RequestBody Manufacturer manufacturer) {
         return service.updateManufacturer(id, manufacturer);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteManufacturer/{id}")
     public void deleteManufacturer(@PathVariable Integer id) {
         service.deleteManufacturer(id);
     }
