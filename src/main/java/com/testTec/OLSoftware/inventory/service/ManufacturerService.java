@@ -18,11 +18,11 @@ public class ManufacturerService {
     @Autowired
     private ManufacturerRepository repository;
 
-    public List<Manufacturer> getAllUsers() {
+    public List<Manufacturer> getAllManufacturers() {
         return repository.findAll();
     }
 
-    public Manufacturer getUserById(Integer id) {
+    public Manufacturer getManufacturerById(Integer id) {
         return repository.findById(id).orElse(null);
     }
 

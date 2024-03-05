@@ -25,7 +25,7 @@ public class DeviceStateService {
         return deviceStateRepository.findById(id).orElse(null);
     }
 
-    public DeviceState createDeviceModel(DeviceState deviceState) {
+    public DeviceState createDeviceState(DeviceState deviceState) {
         // Lógica de validación o procesamiento adicional si es necesario
         return deviceStateRepository.save(deviceState);
     }
