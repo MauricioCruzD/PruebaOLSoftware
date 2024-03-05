@@ -1,4 +1,4 @@
-package com.test.OLSoftware.inventory.service;
+package com.testTec.OLSoftware.inventory.service;
 
 /**
  *
@@ -7,23 +7,22 @@ package com.test.OLSoftware.inventory.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import com.testTec.OLSoftware.inventory.repository.AreaRepository;
+import com.testTec.OLSoftware.inventory.model.Area;
 import org.springframework.stereotype.Service;
-import com.test.OLSoftware.inventory.repository.AreaRepository;
-import com.test.OLSoftware.inventory.model.Area;
-
 import java.util.List;
 
 @Service
 public class AreaService {
 
     @Autowired
-    private AreaRepository areaRepository; // Asumiendo que tienes un repositorio para Area
-
+    private AreaRepository areaRepository; 
+    
     public List<Area> getAllAreas() {
         return areaRepository.findAll();
     }
 
-    public Area getAreaById(Long id) {
+    public Area getAreaById(Integer id) {
         return areaRepository.findById(id).orElse(null);
     }
 
@@ -32,7 +31,7 @@ public class AreaService {
         return areaRepository.save(area);
     }
 
-    public Area updateArea(Long id, Area area) {
+    public Area updateArea(Integer id, Area area) {
         // Verificar si el área existe antes de actualizar
         if (areaRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario
@@ -42,7 +41,7 @@ public class AreaService {
         return null; // Manejar el caso en el que el área no existe
     }
 
-    public void deleteArea(Long id) {
+    public void deleteArea(Integer id) {
         areaRepository.deleteById(id);
     }
 }

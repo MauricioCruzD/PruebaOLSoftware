@@ -1,18 +1,19 @@
-package com.test.OLSoftware.inventory.model;
+package com.testTec.OLSoftware.inventory.model;
 
 /**
  *
  * @author macru
  */
-import javax.persistence.*;
+import java.io.Serializable;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "devices")
-public class Device {
+public class Device implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -22,12 +23,8 @@ public class Device {
     private User assignedUser;
 
     @ManyToOne
-    @JoinColumn(name = "area_id")
-    private Area area;
-
-    @ManyToOne
     @JoinColumn(name = "state_id")
-    private DeviceState state;
+    private DeviceState deviceState;
 
     @ManyToOne
     @JoinColumn(name = "type_id")
@@ -37,27 +34,27 @@ public class Device {
     @JoinColumn(name = "model_id")
     private DeviceModel model;
 
-    @Column(name = "inventory_number")
-    private String inventoryNumber;
+    @Column(name = "inventory_number", unique =true)
+    private Integer inventoryNumber;
 
     @Column(name = "comments")
     private String comments;
 
     // Getters and setters
     
-      public Long getId() {
+      public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getInventoryNumber() {
+    public Integer getInventoryNumber() {
         return inventoryNumber;
     }
 
-    public void setInventoryNumber(String inventoryNumber) {
+    public void setInventoryNumber(Integer inventoryNumber) {
         this.inventoryNumber = inventoryNumber;
     }
 
@@ -70,11 +67,11 @@ public class Device {
     }
 
     public DeviceState getDeviceState() {
-        return state;
+        return deviceState;
     }
 
     public void setDeviceState(DeviceState deviceState) {
-        this.state = deviceState;
+        this.deviceState = deviceState;
     }
 
     public User getAssignedUser() {
@@ -85,11 +82,4 @@ public class Device {
         this.assignedUser = assignedUser;
     }
 
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }

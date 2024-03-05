@@ -1,4 +1,4 @@
-package com.test.OLSoftware.inventory.repository;
+package com.testTec.OLSoftware.inventory.repository;
 
 /**
  *
@@ -8,11 +8,12 @@ package com.test.OLSoftware.inventory.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import com.test.OLSoftware.inventory.model.User;
+import com.testTec.OLSoftware.inventory.model.User;
+import org.springframework.stereotype.Repository;
 import java.util.List;
 
-
-public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
    // Consulta por nombre de usuario
     User findByUsername(String username);
 
@@ -20,6 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByFirstNameAndLastName(String firstName, String lastName);
 
     // Otra consulta personalizada utilizando @Query
-    @Query("SELECT u FROM User u WHERE u.age > :age")
-    List<User> findByAgeGreaterThan(@Param("age") int age);
+    // @Query("SELECT u FROM User u WHERE u.age > :age")
+    // List<User> findByAgeGreaterThan(@Param("age") int age);
 }

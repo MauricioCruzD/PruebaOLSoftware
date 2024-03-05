@@ -1,19 +1,20 @@
-package com.test.OLSoftware.inventory.model;
+package com.testTec.OLSoftware.inventory.model;
 
 /**
  *
  * @author macru
  */
-import javax.persistence.*;
+import java.io.Serializable;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "device_states")
-public class DeviceState {
+public class DeviceState implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String stateName;
@@ -22,12 +23,11 @@ public class DeviceState {
     private List<Device> devices;
 
     // Getters and setters
-    
-       public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

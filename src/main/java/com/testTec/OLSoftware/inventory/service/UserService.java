@@ -1,4 +1,4 @@
-package com.test.OLSoftware.inventory.service;
+package com.testTec.OLSoftware.inventory.service;
 
 /**
  *
@@ -8,8 +8,8 @@ package com.test.OLSoftware.inventory.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.test.OLSoftware.inventory.repository.UserRepository;
-import com.test.OLSoftware.inventory.model.User;
+import com.testTec.OLSoftware.inventory.repository.UserRepository;
+import com.testTec.OLSoftware.inventory.model.User;
 
 import java.util.List;
 
@@ -17,32 +17,32 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository; // Asumiendo que tienes un repositorio para User
+    private UserRepository repository;
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return repository.findAll();
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+    public User getUserById(Integer id) {
+        return repository.findById(id).orElse(null);
     }
 
     public User createUser(User user) {
         // Lógica de validación o procesamiento adicional si es necesario
-        return userRepository.save(user);
+        return repository.save(user);
     }
 
-    public User updateUser(Long id, User user) {
+    public User updateUser(Integer id, User user) {
         // Verificar si el usuario existe antes de actualizar
-        if (userRepository.existsById(id)) {
+        if (repository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario
             user.setId(id); // Asegurando que el ID sea el mismo
-            return userRepository.save(user);
+            return repository.save(user);
         }
         return null; // Manejar el caso en el que el usuario no existe
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void deleteUser(Integer id) {
+        repository.deleteById(id);
     }
 }
