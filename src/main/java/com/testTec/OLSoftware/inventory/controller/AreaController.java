@@ -10,9 +10,11 @@ import com.testTec.OLSoftware.inventory.service.AreaService;
 import com.testTec.OLSoftware.inventory.model.Area;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/areas")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class AreaController {
 
     @Autowired

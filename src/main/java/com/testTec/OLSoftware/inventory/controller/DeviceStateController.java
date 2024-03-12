@@ -10,9 +10,11 @@ import com.testTec.OLSoftware.inventory.service.DeviceStateService;
 import com.testTec.OLSoftware.inventory.model.DeviceState;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/devicestate")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class DeviceStateController {
 
     @Autowired

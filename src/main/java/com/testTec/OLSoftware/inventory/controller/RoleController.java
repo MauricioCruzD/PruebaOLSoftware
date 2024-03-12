@@ -10,9 +10,11 @@ import com.testTec.OLSoftware.inventory.service.RoleService;
 import com.testTec.OLSoftware.inventory.model.Role;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/roles")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class RoleController {
 
     @Autowired

@@ -39,17 +39,16 @@ public class User implements Serializable {
     private String phone;
 
     //@Column(name = "role", nullable = false)
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role")
-    private Role role;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private List<Role> role;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "area_id")
     private Area area;
 
-    // Getters and setters
-
-    @OneToMany(mappedBy = "assignedUser", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "assignedUser")
     private List<Device> devices;
     
 }

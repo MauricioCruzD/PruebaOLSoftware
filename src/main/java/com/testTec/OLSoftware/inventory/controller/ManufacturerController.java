@@ -12,9 +12,11 @@ import com.testTec.OLSoftware.inventory.model.Manufacturer;
 
 
 import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/manufacturers")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class ManufacturerController {
 
     @Autowired
