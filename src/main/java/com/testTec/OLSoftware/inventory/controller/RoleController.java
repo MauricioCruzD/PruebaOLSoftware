@@ -7,7 +7,7 @@ package com.testTec.OLSoftware.inventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.testTec.OLSoftware.inventory.service.RoleService;
-import com.testTec.OLSoftware.inventory.model.Role;
+import com.testTec.OLSoftware.inventory.model.Roles;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -19,22 +19,22 @@ public class RoleController {
     private RoleService roleService;
    
     @GetMapping("/getRoles")
-    public List<Role> getAllRole() {
+    public List<Roles> getAllRole() {
         return roleService.getAllRole();
     }
 
     @GetMapping("/getRol/{id}")
-    public Role getRoleById(@PathVariable Integer id) {
+    public Roles getRoleById(@PathVariable Integer id) {
         return roleService.getRoleById(id);
     }
 
     @PostMapping("/createRol")
-    public Role createRole(@RequestBody Role role) {
+    public Roles createRole(@RequestBody Roles role) {
         return roleService.createRole(role);
     }
 
     @PutMapping("/updateRol/{id}")
-    public Role updateRole(@PathVariable Integer id, @RequestBody Role role) {
+    public Roles updateRole(@PathVariable Integer id, @RequestBody Roles role) {
         return roleService.updateRole(id, role);
     }
 

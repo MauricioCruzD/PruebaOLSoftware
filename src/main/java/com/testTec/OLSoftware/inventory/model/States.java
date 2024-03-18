@@ -6,21 +6,24 @@ package com.testTec.OLSoftware.inventory.model;
  */
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.List;
 import lombok.Data;
+
 
 @Entity
 @Data
-@Table(name = "role")
+@Table(name = "states")
 
-public class Role implements Serializable{
+public class States implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @NotNull
+    @Size(min=1, max=1)
+    private String id;
 
     @Column(name = "name", nullable = false)
+    @NotNull
     private String name;
-
 }

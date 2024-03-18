@@ -1,6 +1,6 @@
 package com.testTec.OLSoftware.inventory.service;
 
-import com.testTec.OLSoftware.inventory.model.DeviceState;
+import com.testTec.OLSoftware.inventory.model.DeviceStates;
 import com.testTec.OLSoftware.inventory.repository.DeviceStateRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +17,20 @@ public class DeviceStateService {
     @Autowired
     private DeviceStateRepository deviceStateRepository; 
     
-    public List<DeviceState> getAllDeviceState() {
+    public List<DeviceStates> getAllDeviceState() {
         return deviceStateRepository.findAll();
     }
 
-    public DeviceState getDeviceStateById(Integer id) {
+    public DeviceStates getDeviceStateById(Integer id) {
         return deviceStateRepository.findById(id).orElse(null);
     }
 
-    public DeviceState createDeviceState(DeviceState deviceState) {
+    public DeviceStates createDeviceState(DeviceStates deviceState) {
         // Lógica de validación o procesamiento adicional si es necesario
         return deviceStateRepository.save(deviceState);
     }
 
-    public DeviceState updateDeviceState(Integer id, DeviceState deviceState) {
+    public DeviceStates updateDeviceState(Integer id, DeviceStates deviceState) {
         // Verificar si el área existe antes de actualizar
         if (deviceStateRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario

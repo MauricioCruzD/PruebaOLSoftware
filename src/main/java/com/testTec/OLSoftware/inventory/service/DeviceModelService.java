@@ -1,6 +1,6 @@
 package com.testTec.OLSoftware.inventory.service;
 
-import com.testTec.OLSoftware.inventory.model.DeviceModel;
+import com.testTec.OLSoftware.inventory.model.DeviceModels;
 import com.testTec.OLSoftware.inventory.repository.DeviceModelRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +17,20 @@ public class DeviceModelService {
     @Autowired
     private DeviceModelRepository deviceModelRepository; 
     
-    public List<DeviceModel> getAllDeviceModel() {
+    public List<DeviceModels> getAllDeviceModel() {
         return deviceModelRepository.findAll();
     }
 
-    public DeviceModel getDeviceModelById(Integer id) {
+    public DeviceModels getDeviceModelById(Integer id) {
         return deviceModelRepository.findById(id).orElse(null);
     }
 
-    public DeviceModel createDeviceModel(DeviceModel deviceModel) {
+    public DeviceModels createDeviceModel(DeviceModels deviceModel) {
         // Lógica de validación o procesamiento adicional si es necesario
         return deviceModelRepository.save(deviceModel);
     }
 
-    public DeviceModel updateDeviceModel(Integer id, DeviceModel deviceModel) {
+    public DeviceModels updateDeviceModel(Integer id, DeviceModels deviceModel) {
         // Verificar si el área existe antes de actualizar
         if (deviceModelRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario

@@ -9,7 +9,7 @@ package com.testTec.OLSoftware.inventory.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.testTec.OLSoftware.inventory.repository.DeviceRepository;
-import com.testTec.OLSoftware.inventory.model.Device;
+import com.testTec.OLSoftware.inventory.model.Devices;
 
 import java.util.List;
 
@@ -19,20 +19,20 @@ public class DeviceService {
     @Autowired
     private DeviceRepository repository; 
 
-    public List<Device> getAllDevices() {
+    public List<Devices> getAllDevices() {
         return repository.findAll();
     }
 
-    public Device getDeviceById(Integer id) {
+    public Devices getDeviceById(Integer id) {
         return repository.findById(id).orElse(null);
     }
 
-    public Device createDevice(Device device) {
+    public Devices createDevice(Devices device) {
         // Lógica de validación o procesamiento adicional si es necesario
         return repository.save(device);
     }
 
-    public Device updateDevice(Integer id, Device device) {
+    public Devices updateDevice(Integer id, Devices device) {
         // Verificar si el dispositivo existe antes de actualizar
         if (repository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario

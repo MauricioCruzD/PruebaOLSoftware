@@ -1,6 +1,6 @@
 package com.testTec.OLSoftware.inventory.repository;
 
-import com.testTec.OLSoftware.inventory.model.DeviceState;
+import com.testTec.OLSoftware.inventory.model.DeviceStates;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface DeviceStateRepository extends JpaRepository<DeviceState, Integer> {
+public interface DeviceStateRepository extends JpaRepository<DeviceStates, Integer> {
  
-    DeviceState findByName(String name);
+    DeviceStates findByName(String name);
      
 }
 

@@ -4,7 +4,7 @@ package com.testTec.OLSoftware.inventory.service;
  *
  * @author macru
  */
-import com.testTec.OLSoftware.inventory.model.DeviceType;
+import com.testTec.OLSoftware.inventory.model.DeviceTypes;
 import com.testTec.OLSoftware.inventory.repository.DeviceTypeRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +17,20 @@ public class DeviceTypeService {
     @Autowired
     private DeviceTypeRepository deviceTypeRepository; 
     
-    public List<DeviceType> getAllDeviceType() {
+    public List<DeviceTypes> getAllDeviceType() {
         return deviceTypeRepository.findAll();
     }
 
-    public DeviceType getDeviceTypeById(Integer id) {
+    public DeviceTypes getDeviceTypeById(Integer id) {
         return deviceTypeRepository.findById(id).orElse(null);
     }
 
-    public DeviceType createDeviceType(DeviceType deviceType) {
+    public DeviceTypes createDeviceType(DeviceTypes deviceType) {
         // Lógica de validación o procesamiento adicional si es necesario
         return deviceTypeRepository.save(deviceType);
     }
 
-    public DeviceType updateDeviceType(Integer id, DeviceType deviceType) {
+    public DeviceTypes updateDeviceType(Integer id, DeviceTypes deviceType) {
         // Verificar si el área existe antes de actualizar
         if (deviceTypeRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario

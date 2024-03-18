@@ -8,7 +8,7 @@ package com.testTec.OLSoftware.inventory.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.testTec.OLSoftware.inventory.repository.ManufacturerRepository;
-import com.testTec.OLSoftware.inventory.model.Manufacturer;
+import com.testTec.OLSoftware.inventory.model.Manufacturers;
 
 import java.util.List;
 
@@ -18,20 +18,20 @@ public class ManufacturerService {
     @Autowired
     private ManufacturerRepository repository;
 
-    public List<Manufacturer> getAllManufacturers() {
+    public List<Manufacturers> getAllManufacturers() {
         return repository.findAll();
     }
 
-    public Manufacturer getManufacturerById(Integer id) {
+    public Manufacturers getManufacturerById(Integer id) {
         return repository.findById(id).orElse(null);
     }
 
-    public Manufacturer createManufacturer(Manufacturer manufacturer) {
+    public Manufacturers createManufacturer(Manufacturers manufacturer) {
         // Lógica de validación o procesamiento adicional si es necesario
         return repository.save(manufacturer);
     }
 
-    public Manufacturer updateManufacturer(Integer id, Manufacturer manufacturer) {
+    public Manufacturers updateManufacturer(Integer id, Manufacturers manufacturer) {
         // Verificar si el usuario existe antes de actualizar
         if (repository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario

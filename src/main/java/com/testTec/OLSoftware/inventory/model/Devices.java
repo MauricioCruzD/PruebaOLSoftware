@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "devices")
-public class Device implements Serializable {
+public class Devices implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,24 +22,28 @@ public class Device implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "assigned_user_id")
-    private User assignedUser;
+    private Users assignedUser;
 
     @ManyToOne
-    @JoinColumn(name = "state_id")
-    private DeviceState deviceState;
+    @JoinColumn(name = "state_device_id")
+    private DeviceStates deviceState;
 
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private DeviceType type;
-
+    private DeviceTypes type;
+    
     @ManyToOne
     @JoinColumn(name = "model_id")
-    private DeviceModel model;
+    private DeviceModels model;
 
     @Column(name = "inventory_number", unique =true)
     private Integer inventoryNumber;
 
     @Column(name = "comments")
     private String comments;
+    
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name="state_id",referencedColumnName ="id")
+    private States state;
 
 }

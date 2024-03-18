@@ -7,7 +7,7 @@ package com.testTec.OLSoftware.inventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.testTec.OLSoftware.inventory.service.DeviceTypeService;
-import com.testTec.OLSoftware.inventory.model.DeviceType;
+import com.testTec.OLSoftware.inventory.model.DeviceTypes;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -19,22 +19,22 @@ public class DeviceTypeController {
     private DeviceTypeService deviceTypeService;
    
     @GetMapping("/getDeviceTypes")
-    public List<DeviceType> getAllDeviceType() {
+    public List<DeviceTypes> getAllDeviceType() {
         return deviceTypeService.getAllDeviceType();
     }
 
     @GetMapping("/getDeviceType/{id}")
-    public DeviceType getDeviceTypeById(@PathVariable Integer id) {
+    public DeviceTypes getDeviceTypeById(@PathVariable Integer id) {
         return deviceTypeService.getDeviceTypeById(id);
     }
 
     @PostMapping("/createDeviceType")
-    public DeviceType createDeviceType(@RequestBody DeviceType deviceType) {
+    public DeviceTypes createDeviceType(@RequestBody DeviceTypes deviceType) {
         return deviceTypeService.createDeviceType(deviceType);
     }
 
     @PutMapping("/updateDeviceType/{id}")
-    public DeviceType updateDeviceType(@PathVariable Integer id, @RequestBody DeviceType deviceType) {
+    public DeviceTypes updateDeviceType(@PathVariable Integer id, @RequestBody DeviceTypes deviceType) {
         return deviceTypeService.updateDeviceType(id, deviceType);
     }
 

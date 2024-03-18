@@ -4,7 +4,7 @@ package com.testTec.OLSoftware.inventory.service;
  *
  * @author macru
  */
-import com.testTec.OLSoftware.inventory.model.Role;
+import com.testTec.OLSoftware.inventory.model.Roles;
 import com.testTec.OLSoftware.inventory.repository.RoleRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +17,20 @@ public class RoleService {
     @Autowired
     private RoleRepository roleRepository; 
     
-    public List<Role> getAllRole() {
+    public List<Roles> getAllRole() {
         return roleRepository.findAll();
     }
 
-    public Role getRoleById(Integer id) {
+    public Roles getRoleById(Integer id) {
         return roleRepository.findById(id).orElse(null);
     }
 
-    public Role createRole(Role role) {
+    public Roles createRole(Roles role) {
         // Lógica de validación o procesamiento adicional si es necesario
         return roleRepository.save(role);
     }
 
-    public Role updateRole(Integer id, Role role) {
+    public Roles updateRole(Integer id, Roles role) {
         // Verificar si el área existe antes de actualizar
         if (roleRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario
