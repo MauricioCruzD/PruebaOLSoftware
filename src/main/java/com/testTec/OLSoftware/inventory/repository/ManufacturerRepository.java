@@ -1,6 +1,6 @@
 package com.testTec.OLSoftware.inventory.repository;
 
-import com.testTec.OLSoftware.inventory.model.Manufacturer;
+import com.testTec.OLSoftware.inventory.model.Manufacturers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 /**
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface ManufacturerRepository extends JpaRepository<Manufacturer, Integer> {
+public interface ManufacturerRepository extends JpaRepository<Manufacturers, Integer> {
  
-    Manufacturer findByName(String name);
+    Manufacturers findByName(String name);
      
 }

@@ -8,7 +8,7 @@ package com.testTec.OLSoftware.inventory.controller;
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.web.bind.annotation.*;
 import com.testTec.OLSoftware.inventory.service.ManufacturerService;
-import com.testTec.OLSoftware.inventory.model.Manufacturer;
+import com.testTec.OLSoftware.inventory.model.Manufacturers;
 
 
 import java.util.List;
@@ -21,22 +21,22 @@ public class ManufacturerController {
     private ManufacturerService service;
 
     @GetMapping("/getManufacturers")
-    public List<Manufacturer> getAllManufacturers() {
+    public List<Manufacturers> getAllManufacturers() {
         return service.getAllManufacturers();
     }
 
     @GetMapping("/getManufacturer/{id}")
-    public Manufacturer getManufacturerById(@PathVariable Integer id) {
+    public Manufacturers getManufacturerById(@PathVariable Integer id) {
         return service.getManufacturerById(id);
     }
 
     @PostMapping("/createManufacturer")
-    public Manufacturer createManufacturer(@RequestBody Manufacturer manufacturer) {
+    public Manufacturers createManufacturer(@RequestBody Manufacturers manufacturer) {
         return service.createManufacturer(manufacturer);
     }
 
     @PutMapping("/updateManufacturer/{id}")
-    public Manufacturer updateManufacturer(@PathVariable Integer id, @RequestBody Manufacturer manufacturer) {
+    public Manufacturers updateManufacturer(@PathVariable Integer id, @RequestBody Manufacturers manufacturer) {
         return service.updateManufacturer(id, manufacturer);
     }
 

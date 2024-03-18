@@ -4,7 +4,7 @@
  */
 package com.testTec.OLSoftware.inventory.repository;
 
-import com.testTec.OLSoftware.inventory.model.Role;
+import com.testTec.OLSoftware.inventory.model.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Integer> {
+public interface RoleRepository extends JpaRepository<Roles, Integer> {
  
-    Role findByName(String name);
+    Roles findByName(String name);
      
 }

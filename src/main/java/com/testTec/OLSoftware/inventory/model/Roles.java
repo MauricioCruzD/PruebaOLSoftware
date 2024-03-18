@@ -12,9 +12,9 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "role")
+@Table(name = "roles")
 
-public class Role implements Serializable{
+public class Roles implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,8 @@ public class Role implements Serializable{
 
     @Column(name = "name", nullable = false)
     private String name;
-
+    
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name="state_id",referencedColumnName ="id")
+    private States state;
 }

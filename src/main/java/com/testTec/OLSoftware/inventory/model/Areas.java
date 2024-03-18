@@ -7,13 +7,12 @@ package com.testTec.OLSoftware.inventory.model;
  */
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "areas")
-public class Area implements Serializable {
+public class Areas implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +21,12 @@ public class Area implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @OneToMany(mappedBy = "area", cascade = CascadeType.ALL)
-    private List<User> users;
+//    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+//    private List<Users> users;
+    
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name="state_id",referencedColumnName ="id")
+    private States state;
     
 }
 

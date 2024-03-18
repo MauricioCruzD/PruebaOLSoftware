@@ -1,6 +1,6 @@
 package com.testTec.OLSoftware.inventory.repository;
 
-import com.testTec.OLSoftware.inventory.model.DeviceType;
+import com.testTec.OLSoftware.inventory.model.DeviceTypes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface DeviceTypeRepository extends JpaRepository<DeviceType, Integer> {
+public interface DeviceTypeRepository extends JpaRepository<DeviceTypes, Integer> {
  
-    DeviceType findByName(String name);
+    DeviceTypes findByName(String name);
      
 }
 

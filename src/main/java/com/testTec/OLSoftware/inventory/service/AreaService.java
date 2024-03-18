@@ -8,7 +8,7 @@ package com.testTec.OLSoftware.inventory.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.testTec.OLSoftware.inventory.repository.AreaRepository;
-import com.testTec.OLSoftware.inventory.model.Area;
+import com.testTec.OLSoftware.inventory.model.Areas;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -18,20 +18,20 @@ public class AreaService {
     @Autowired
     private AreaRepository areaRepository; 
     
-    public List<Area> getAllAreas() {
+    public List<Areas> getAllAreas() {
         return areaRepository.findAll();
     }
 
-    public Area getAreaById(Integer id) {
+    public Areas getAreaById(Integer id) {
         return areaRepository.findById(id).orElse(null);
     }
 
-    public Area createArea(Area area) {
+    public Areas createArea(Areas area) {
         // Lógica de validación o procesamiento adicional si es necesario
         return areaRepository.save(area);
     }
 
-    public Area updateArea(Integer id, Area area) {
+    public Areas updateArea(Integer id, Areas area) {
         // Verificar si el área existe antes de actualizar
         if (areaRepository.existsById(id)) {
             // Lógica de validación o procesamiento adicional si es necesario
