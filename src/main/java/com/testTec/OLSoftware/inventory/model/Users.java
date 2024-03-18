@@ -60,9 +60,6 @@ public class Users implements Serializable {
     @JoinColumn(name = "area_id",referencedColumnName ="id")
     private Areas area;
 
-    @OneToMany(mappedBy = "assignedUser", cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-    private List<Devices> devices;
-    
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     @JoinColumn(name="state_id",referencedColumnName ="id")
     private States state;

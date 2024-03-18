@@ -31,7 +31,5 @@ public class TypesId implements Serializable{
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     @JoinColumn(name="state_id",referencedColumnName ="id")
     private States state;
-    
-//    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-//    private List<Users> users;
+
 }

@@ -26,32 +26,4 @@ public class States implements Serializable{
     @Column(name = "name", nullable = false)
     @NotNull
     private String name;
-    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<Areas> areas;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<Users> users;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<Roles> roles;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<Devices> devices;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<Manufacturers> manufacturer;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<DeviceModels> deviceModel;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<DeviceTypes> deviceType;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<DeviceStates> deviceState;
-//    
-//    @OneToMany(mappedBy="state", cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
-//    private List<TypesId> typeId;
-//   
 }

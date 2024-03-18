@@ -20,10 +20,7 @@ public class Areas implements Serializable {
 
     @Column(name = "name", nullable = false)
     private String name;
-    
-//    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-//    private List<Users> users;
-    
+       
     @ManyToOne(cascade={CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     @JoinColumn(name="state_id",referencedColumnName ="id")
     private States state;
